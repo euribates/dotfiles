@@ -95,8 +95,7 @@ alias l='lsd -l --date relative'
 alias cdlib='cd ~/web/Libreria && git pull && termtitle libreria' 
 alias cdweb='cd ~/web/wwwroot && git pull && termtitle web'
 alias cdcgi='cd ~/web/cgi-bin && git pull && termtitle cgi'
-alias cdparcanweb='workon parcanweb && cdproject && git pull && termtitle
-parcanweb'
+alias cdparcanweb='workon parcanweb && cdproject && git pull && termtitle parcanweb'
 
 # alias para git
 alias gpush='git push -v'
