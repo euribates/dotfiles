@@ -2,7 +2,7 @@
 
 Several dot files I use.
 
-This uses the yadm: [Yet Another Dotfile Manager](https://yadm.io/docs)
+This uses the yadm: [Yet Another Dotfile Manager](https://yadm.io/docs/overview)
 
 From the YADM docs:
 
