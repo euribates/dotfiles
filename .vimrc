@@ -13,16 +13,41 @@ set shiftround
 
 set mouse=a
 
+scriptencoding utf-8 " basic
+
 set laststatus=2 statusline=%-30f\ %m\ %20{&fileencoding?&fileencoding:&encoding}\ line:%l\ col:%c
 
 let mapleader=","
 set timeout timeoutlen=1500
+
+" Save
+nnoremap <C-s> :update<CR>
+vnoremap <C-s> <Esc>:update<CR>
+inoremap <C-s> <Esc>:update<CR>
 
 execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
 set guifont=Fira\ Code\ 14
+
+set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+
+set showmatch
+set magic
+
+" Always copy to both internal and system clipboard
+set clipboard+=unnamedplus,unnamed
+
+" Don't lose clipboard when pasting
+vnoremap p pgvy
+
+" Change dir to current path
+command! ChangeDir :cd %:p:h<CR>
+
+" Buffers
+nnoremap <C-j> :bn<CR>
+nnoremap <C-k> :bp<CR>
 
 "" Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -36,8 +61,6 @@ let g:ycm_key_list_previous_completion=[] " disables the tab key for YCM
 
 " NerdTree settings
 let g:NERDTreeWinPos = "right"
-
-nnoremap <silent> <C-S> :<C-u>Update<CR>
 
 vmap <leader>mc !boxes -d pound-cmt<CR>
 nmap <leader>mc !!boxes -d pound-cmt<CR>
