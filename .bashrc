@@ -59,6 +59,9 @@ export COLOR_YELLOW='\e[1;33m'
 export COLOR_GRAY='\e[1;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 
+# I love vim
+export EDITOR=vim
+
 # Valores para pyenv
 export PATH="/home/jileon/.pyenv/bin:/home/jileon/.cargo/bin:$PATH"
 eval "$(pyenv init -)"
@@ -68,7 +71,10 @@ eval "$(pyenv virtualenv-init -)"
 eval `ssh-agent`
 
 # function to set terminal title  
-termtitle() { echo -en "\033]0;$1\007"; }
+function termtitle() {
+    echo -en "\033]0;$1\007";
+}
+export -f termtitle
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -77,7 +83,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
+    alias grep='grep --color=auto --ignore-case'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 
@@ -85,25 +91,6 @@ fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='lsd -A'
-alias l='lsd -l --date relative'
-
-# Alias trabajo
-alias cdlib='cd ~/web/Libreria && git pull && termtitle libreria' 
-alias cdweb='cd ~/web/wwwroot && git pull && termtitle web'
-alias cdcgi='cd ~/web/cgi-bin && git pull && termtitle cgi'
-alias cdparcanweb='workon parcanweb && cdproject && git pull && termtitle parcanweb'
-
-# alias para git
-alias gpush='git push -v'
-alias gpull='git pull -v'
-
-# Stupid, supid systemd
-
-alias daemons='systemctl list-units --type=service --state=failed,active'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -115,7 +102,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # Virtual env wrapper
@@ -139,14 +126,6 @@ if [ -x /usr/games/fortune ]; then
      /usr/games/fortune
 fi
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jileon/Descargas/google-cloud-sdk/path.bash.inc' ]; then . '/home/jileon/Descargas/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/jileon/Descargas/google-cloud-sdk/completion.bash.inc' ]; then . '/home/jileon/Descargas/google-cloud-sdk/completion.bash.inc'; fi
-
-
 # Z
 if [[ -f ~/bin/z.sh ]]
 then
@@ -163,7 +142,13 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 
+tere() {
+    local result=$(/home/jileon/.cargo/bin/tere "$@")
+    [ -n "$result" ] && cd -- "$result"
+}
+
+eval `keychain --eval id_rsa id_rsa_acl`
+neofetch
