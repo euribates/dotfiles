@@ -19,5 +19,5 @@ Instala [just](https://github.com/casey/just) y ejecuta
 just
 ```
 
-Nota: Si ya existen los fichares, no hará nada. Bórralos a manos si quieres
-sustituirlos.
+Nota: Si ya existen los fichares, no hará nada. Bórralos o cambiales el nombre
+si quieres sustituirlos.
