@@ -1,0 +1,29 @@
+classic: false
+
+# == Blocks ==
+# This specifies the columns and their order
+# when using the long and the tree layout.
+# Possible values:
+#   permission, user, group, context, size,
+#   date, name, inode, links, git
+blocks:
+  - git
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - name
+
+color:
+  when: auto
+  theme: custom
+
+date: relative
+
+icons:
+  when: auto
+  theme: fancy
+
+indicators: true
+size: short
