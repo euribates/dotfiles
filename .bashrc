@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-logun shells.
+# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -86,6 +86,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto --ignore-case'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias sqlplus="rlwrap sqlplus"
+
 
 fi
 
@@ -132,9 +134,11 @@ then
     source ~/bin/z.sh
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # fzf
 if type rg &> /dev/null; then
@@ -142,13 +146,15 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-eval "$(zoxide init bash)"
+# Scripts de python instalados a nivel de sistema
+export PATH="$PATH:/home/jileon/.local/bin"
+
+# Starship
 eval "$(starship init bash)"
 
-tere() {
-    local result=$(/home/jileon/.cargo/bin/tere "$@")
-    [ -n "$result" ] && cd -- "$result"
-}
+# Rust
+source "$HOME/.cargo/env"
 
-eval `keychain --eval id_rsa id_rsa_acl`
+# keychain
+eval `keychain --eval --agents ssh id_rsa`
 neofetch
