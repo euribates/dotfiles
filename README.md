@@ -4,12 +4,19 @@
 
 ### Ficheros para **bash**
 
-- [.bashrc](.bashrc)
-- [.bash_aliases](.bash_aliases)
+- [`.bashrc`](.bashrc)
+- [`.bash_aliases`](.bash_aliases)
 
-### iFicheros para **Vim**
+### Ficheros para **Vim**
 
-- [.vimrc](.vimrc)
+- [`.vimrc`](.vimrc)
+
+
+### Ficheros para **Lsd** (<https://github.com/lsd-rs/lsd>)
+
+- [`.config/lsd/config.yaml`](.config/lsd/config.yaml)
+- [`.config/lsd/colors.yaml`](.config/lsd/colors.yaml)
+
 
 ## Para usar
 
