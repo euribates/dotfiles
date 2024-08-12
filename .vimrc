@@ -132,13 +132,17 @@ endif
 
 " Ajustar en ancho de linea segun el tipo de fichero
 if has("autocmd")
-    au BufRead,BufNewFile *.md setlocal textwidth=80
+    autocmd FileType markdown setlocal textwidth=80
+    autocmd FileType markdown setlocal spell
+    set spell spelllang=es 
     au BufRead,BufNewFile *.py setlocal textwidth=96
 endif
 
+" Set 3 space soft for tabs in js, 2 for css and html files
 if has("autocmd")
-    autocmd FileType markdown setlocal spell
-    set spell spelllang=es 
+    autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType js setlocal shiftwidth=3 softtabstop=3 expandtab
 endif
 
 "" Skeletons
