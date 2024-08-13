@@ -30,7 +30,7 @@ inoremap <C-s> <Esc>:update<CR>
 set spell spelllang=es 
 
 filetype plugin indent on
-let python_highlight_all=1
+" let python_highlight_all=1
 syntax on
  
 colorscheme industry
@@ -143,6 +143,9 @@ if has("autocmd")
     autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType js setlocal shiftwidth=3 softtabstop=3 expandtab
+    autocmd FileType markdown setlocal spell spelllang=es
+    autocmd FileType python setlocal nospell
+    set spelllang=es
 endif
 
 "" Skeletons
