@@ -6,22 +6,27 @@ classic: false
 # Possible values:
 #   permission, user, group, context, size,
 #   date, name, inode, links, git
+
 blocks:
-  - git
   - permission
   - user
   - group
   - size
   - date
   - name
+  - git
+
+date: relative
 
 color:
   when: auto
   theme: custom
 
-date: relative
-
+# == Icons ==
 icons:
+  # When to use icons.
+  # When "classic" is set, this is set to "never".
+  # Possible values: always, auto, never
   when: auto
   theme: fancy
 
