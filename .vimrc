@@ -14,6 +14,8 @@ set shiftround
 
 set mouse=a
 
+set tags=./tags;,tags;
+
 scriptencoding utf-8 " basic
 
 set laststatus=2 statusline=%-30f\ %m\ %20{&fileencoding?&fileencoding:&encoding}\ line:%l\ col:%c
