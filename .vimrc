@@ -14,7 +14,7 @@ set shiftround
 
 set mouse=a
 
-set tags=./tags;,tags;
+set tags=./tags;,tags; " look for a tags in the directory of the current file, then upwards
 
 scriptencoding utf-8 " basic
 
