@@ -149,12 +149,11 @@ fi
 # Scripts de python instalados a nivel de sistema
 export PATH="$PATH:/home/jileon/.local/bin"
 
+# keychain
+eval `keychain --eval --agents ssh id_rsa`
+
 # Starship
 eval "$(starship init bash)"
 
-# Rust
-source "$HOME/.cargo/env"
-
-# keychain
-eval `keychain --eval --agents ssh id_rsa`
+# Neofetch
 neofetch
