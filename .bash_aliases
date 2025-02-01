@@ -4,12 +4,12 @@ alias la='lsd -A'
 alias l='lsd --date relative'
 
 # Alias trabajo
-alias cdlib='cd ~/web/Libreria && git pull -v && termtitle "PCINFJILEON LIB"'
-alias cdweb='cd ~/web/wwwroot && git pull -v && termtitle "PCINFJILEON WEB"'
-alias cdcgi='cd ~/web/cgi-bin && git pull -v && termtitle "PCINFJILEON CGI"'
+alias cdlib='cd ~/web/Libreria && git pull -v && termtitle "LIB"'
+alias cdweb='cd ~/web/wwwroot && git pull -v && termtitle "WEB"'
+alias cdcgi='cd ~/web/cgi-bin && git pull -v && termtitle "CGI-BIN"'
 alias cdparcanweb='cd ~/web/parcanweb && workon parcanweb && git pull -v && termtitle "Parcanweb" && just restart'
-alias cdacl='cd ~/workarea/acl && git pull -v && termtitle "PCINFJILEN ACL"'
-alias cdnotes='cd ~/workarea/notes && git pull -v && termtitle "Notes"'
+alias cdacl='cd ~/workarea/acl && git pull -v && termtitle "ACL"'
+alias cdnotes='cd ~/workarea/euribates/notes && git pull -v && termtitle "Notes"'
 
 # alias para git
 alias gpush='git push -v'
